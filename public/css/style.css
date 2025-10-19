@@ -1,0 +1,236 @@
+/* Consolidated stylesheet for Persia JS - header, banner, navigation, mobile menu */
+
+:root{
+  --header-height: 80px;
+  --container-max: 1200px;
+  /* Colors */
+  --color-bg: #080a14; /* deep background used for overlays */
+  --color-white: #ffffff;
+  --color-muted: #d3d3d3;
+  --color-divider: rgba(255,255,255,0.12);
+  --nav-link-color: var(--color-muted);
+  --nav-link-hover-bg: rgba(255,255,255,0.08);
+  --banner-tint: rgba(10,10,30,0.28);
+  /* Font families (loaded from public/font) */
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-alt: 'Montserrat', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  /* Glass navbar tokens */
+  --glass-bg: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.22);
+  --glass-blur: 6px;
+}
+
+*,:before,:after{box-sizing:border-box}
+@font-face{font-family:'Poppins';src:local('Poppins Regular'), url('../font/Poppins-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Poppins';src:local('Poppins Medium'), url('../font/Poppins-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Poppins';src:local('Poppins Bold'), url('../font/Poppins-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Montserrat';src:local('Montserrat'), url('../font/Montserrat-VariableFont_wght.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
+
+html,body{height:100%;margin:0;font-family:var(--font-sans)}
+
+/* Header overlays the banner */
+.header{
+  position:fixed; /* fixed at top */
+  left:0;right:0;top:0;
+  height:var(--header-height);
+  z-index:1000;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:auto;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+/* By default allow the header to sit over the hero/banner (no body padding).
+  When the header becomes 'scrolled' (or the mobile menu opens) we add a class
+  to the body to push content down so it isn't hidden under the fixed navbar. */
+body{padding-top:0}
+
+/* Applied when the header is in the scrolled state or the menu is open. This
+  prevents content from being hidden under the fixed header. */
+body.nav-scrolled{padding-top:var(--header-height);} 
+
+.container{
+  width:100%;max-width:var(--container-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 20px;gap:12px;
+}
+
+/* Header container: transparent by default, glass when scrolled */
+.header .container{
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  padding: 8px 20px;
+  transition: background .25s ease, box-shadow .25s ease, border .25s ease, backdrop-filter .25s ease;
+}
+
+.header.scrolled .container{
+  background: var(--glass-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+/* Logo area with divider */
+.app-logo{display:flex;align-items:center;gap:12px;padding-left:6px}
+.app-logo{ text-decoration: none; }
+.logo-img{width:56px;height:56px;border-radius:6px;overflow:hidden;flex:0 0 56px}
+.logo-img img{width:100%;height:100%;object-fit:cover;display:block}
+.text-logo{color:var(--color-white);font-weight:700;font-size:1.25rem}
+
+.app-logo:focus{outline:2px solid rgba(255,255,255,0.14);outline-offset:4px}
+
+/* Vertical divider after logo (desktop only) */
+.logo-divider{
+  display:block;height:48px;margin-left:18px;border-left:1px solid rgba(255,255,255,0.18);
+}
+
+/* Navigation */
+.nav{display:flex;align-items:center;gap:48px;padding-right:6px}
+.link{color:var(--nav-link-color);text-decoration:none;font-weight:500;padding:10px 14px;border-radius:4px;transition:all .22s}
+.link:hover{color:var(--color-white);background:var(--nav-link-hover-bg)}
+
+
+
+/* Mobile: hide desktop nav, show hamburger */
+.menu{display:none}
+
+
+/* Hamburger */
+.hamburger{width:40px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;padding:6px;border-radius:6px}
+.hamburger svg{display:block;fill:var(--color-white);width:20px;height:20px}
+
+/* Mobile nav open state */
+.nav.open{display:flex;position:absolute;left:0;right:0;top:var(--header-height);background:linear-gradient(180deg, rgba(8,10,20,0.98), rgba(8,10,20,0.98));flex-direction:column;padding:12px;gap:8px;z-index:55}
+.nav.open .link{padding:12px 16px;color:var(--color-white)}
+
+/* Glass effect for mobile nav panel */
+.nav.open{
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+/* Banner hero */
+.banner{position:relative;width:100%;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.banner::before{content:'';position:absolute;inset:0;background:var(--banner-tint);z-index:2;pointer-events:none}
+.banner-content{position:relative;z-index:3;color:var(--color-white);text-align:center;padding:12px;max-width:1100px}
+
+.banner-content h1{font-size:116px;line-height:0.9;margin:0;font-weight:800;letter-spacing:-2px;text-transform:none;text-shadow:0 6px 30px rgba(2,6,23,0.6)}
+.banner-content p{font-size:20px;margin-top:18px;color:rgba(255,255,255,0.95);font-weight:500}
+
+/* Tint utilities */
+.tint-indigo{--banner-tint: rgba(79,70,229,0.32)}
+.tint-dark{--banner-tint: rgba(1,6,23,0.48)}
+
+/* Divider line at header bottom similar to photo */
+.header::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--color-divider);z-index:61;opacity:0;transition:opacity .22s ease}
+.header.scrolled::after{opacity:1}
+
+/* Small tweaks */
+body h1{margin:0}
+
+/* Accessibility focus */
+.link:focus{outline:2px solid var(--color-divider);outline-offset:2px}
+
+/* Divider between sections: thin line inserted before each section after the first */
+section + section::before{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+  margin: 28px 0; /* spacing between sections */
+}
+
+/* Stats counters */
+.stats{background:var(--color-white);color:#111;margin-top:0;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);}
+.stats-inner{max-width:var(--container-max);margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:0;padding:42px 20px;align-items:center}
+.stat{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 18px;position:relative}
+.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:12px;height:56px;width:1px;background:rgba(0,0,0,0.06)}
+.stat-number{font-size:48px;font-weight:800;color:#111;margin-bottom:12px}
+.stat-label{font-size:13px;color:#7b7b7b;letter-spacing:1px}
+
+/* Responsive rules for stats, banner, nav, events and cards are
+   consolidated at the end of this file for readability. */
+
+/* Events container styles (gradient as provided) */
+.events-container{
+  min-height:320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:48px 20px;
+  color:#082025;
+  background: #2A7B9B;
+  background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 55%, rgba(119, 204, 122, 1) 61%, rgba(159, 210, 109, 1) 74%, rgba(237, 221, 83, 1) 100%);
+  border-radius:12px;
+  box-shadow: 0 6px 30px rgba(12,38,40,0.12);
+  margin:28px 20px;
+}
+
+/* Events container responsive rules moved to the bottom of the file. */
+
+/* Card layout inside events */
+.card-wrapper{max-width:1200px;width:100%;display:grid;grid-template-columns:360px 1fr;gap:28px;align-items:start}
+.card-wrapper .img-card{background:transparent;border-radius:12px;overflow:hidden}
+.card-wrapper .img-card img{display:block;width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+.card-wrapper .info-card{display:flex;flex-direction:column;gap:14px}
+.info-card .info{background: rgba(255,255,255,0.9);padding:22px;border-radius:12px;box-shadow:0 6px 24px rgba(6,22,26,0.06)}
+.info-title{font-size:28px;color:#05204b;margin:0 0 12px 0;font-weight:800}
+.info-link_wrapper{margin-top:6px}
+.info-link{display:inline-flex;align-items:center;text-decoration:none;color:#0b5460;font-weight:700}
+.link-container{display:inline-flex;align-items:center;gap:10px;background:transparent;padding:8px 10px;border-radius:8px}
+.link-icon svg{width:22px;height:22px;fill:#0b5460}
+.link-text{font-size:15px}
+
+/* registration / meta card */
+.base-card{margin-top:12px;border-radius:12px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,250,252,0.96));border:1px solid rgba(6,22,26,0.04)}
+.base-card p{margin:0;color:#12334a}
+
+.footer{height:40px}
+
+/* Card and info responsive rules moved to the bottom of the file. */
+
+/* -----------------------
+   Consolidated Media Queries
+   ----------------------- */
+
+@media (max-width:1200px){
+  .banner-content h1{font-size:84px}
+}
+
+@media (max-width:980px){
+  .card-wrapper{grid-template-columns:1fr;gap:18px}
+  .card-wrapper .img-card img{height:320px}
+}
+
+@media (max-width:900px){
+  .banner-content h1{font-size:56px}
+  .banner-content p{font-size:18px}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:20px;padding:28px}
+  .stat:not(:last-child)::after{display:none}
+}
+
+@media (max-width:768px){
+  .nav{display:none}
+  .menu{display:block}
+  .text-logo{font-size:1rem}
+}
+
+@media (max-width:720px){
+  .events-container{padding:28px;margin:18px 12px}
+}
+
+@media (max-width:480px){
+  .banner-content h1{font-size:36px}
+  .banner-content p{font-size:15px}
+  .stats-inner{grid-template-columns:1fr;gap:12px;padding:20px}
+  .info-title{font-size:20px}
+  .info-card .info{padding:16px}
+}
