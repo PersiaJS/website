@@ -3,6 +3,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const menuButton = document.getElementById('menu-button');
   const nav = document.querySelector('.nav');
   const header = document.querySelector('.header');
+  console.log('[menu.js] initializing');
+
+  // defensive fallback selectors in case the expected ids/classes change
+  let button = menuButton;
+  let navEl = nav;
+  if (!button) {
+    button = document.querySelector('.hamburger') || document.querySelector('#menu-button');
+    console.warn('[menu.js] menu-button not found by id; tried fallbacks', !!button);
+  }
+  if (!navEl) {
+    navEl = document.querySelector('nav') || document.querySelector('.nav');
+    console.warn('[menu.js] nav element not found by .nav; tried fallbacks', !!navEl);
+  }
+
+  // ensure we have elements before continuing
+  if (!button || !navEl) {
+    console.error('[menu.js] critical elements missing: menu button or nav — aborting menu setup');
+    return;
+  }
 
   // Icons are stored as strings and injected into the button to keep DOM small
   const ICON_MENU =
@@ -11,45 +30,55 @@ document.addEventListener('DOMContentLoaded', function () {
   const ICON_CLOSE =
     '<svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="20" height="20" aria-hidden="true"><path d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z"/></svg>';
 
-  if (!menuButton || !nav) return;
+  // normalized references we use from here on
+  const btn = button;
+  const navNode = navEl;
+
+  if (!btn || !navNode) return;
 
   // Constants
   const SCROLL_THRESHOLD = 10; // px scrolled before header gets scrolled state
 
-  // initialize button icon
-  menuButton.innerHTML = ICON_MENU;
+  // ensure the element behaves like a button even if attribute missing
+  try { btn.type = btn.type || 'button'; } catch (e) { /* ignore for non-button elements */ }
+  // initialize button icon (this will replace the fallback SVG if present)
+  btn.innerHTML = ICON_MENU;
 
   // Open the mobile nav: set ARIA, swap icon and ensure header appears scrolled
   function openMenu() {
-    nav.classList.add('open');
-    nav.setAttribute('aria-hidden', 'false');
-    menuButton.setAttribute('aria-expanded', 'true');
-    menuButton.setAttribute('aria-label', 'Close menu');
-    menuButton.classList.add('is-active');
-    menuButton.innerHTML = ICON_CLOSE;
+    navNode.classList.add('open');
+    navNode.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close menu');
+    btn.classList.add('is-active');
+    btn.innerHTML = ICON_CLOSE;
     if (header) header.classList.add('scrolled');
     // add body class so content is not hidden behind fixed header
     document.body.classList.add('nav-scrolled');
+    console.log('[menu.js] menu opened');
   }
 
   // Close the mobile nav and reset ARIA/icon. Header scrolled state will only be
   // removed if the page is at the top.
   function closeMenu() {
-    nav.classList.remove('open');
-    nav.setAttribute('aria-hidden', 'true');
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Open menu');
-    menuButton.classList.remove('is-active');
-    menuButton.innerHTML = ICON_MENU;
+    navNode.classList.remove('open');
+    navNode.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.classList.remove('is-active');
+    btn.innerHTML = ICON_MENU;
     document.body.classList.remove('nav-scrolled');
     if (header && window.pageYOffset < SCROLL_THRESHOLD) {
       header.classList.remove('scrolled');
     }
+    console.log('[menu.js] menu closed');
   }
 
   // Toggle on click
-  menuButton.addEventListener('click', function () {
-    if (nav.classList.contains('open')) {
+  // Attach click handler (use normalized btn/navNode)
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (navNode.classList.contains('open')) {
       closeMenu();
     } else {
       openMenu();
@@ -77,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
           header.classList.remove('scrolled');
           // Only remove body offset if nav isn't open
-          if (!nav.classList.contains('open')) document.body.classList.remove('nav-scrolled');
+          if (!navNode.classList.contains('open')) document.body.classList.remove('nav-scrolled');
         }
       }
       ticking = false;

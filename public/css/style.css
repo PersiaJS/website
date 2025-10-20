@@ -18,6 +18,8 @@
   --glass-bg: rgba(255,255,255,0.12);
   --glass-border: rgba(255,255,255,0.22);
   --glass-blur: 6px;
+  /* Mobile menu link color when open (darker for contrast over glass) */
+  --mobile-nav-link-color: #05204b;
 }
 
 *,:before,:after{box-sizing:border-box}
@@ -54,23 +56,59 @@ body.nav-scrolled{padding-top:var(--header-height);}
 
 /* Header container: transparent by default, glass when scrolled */
 .header .container{
-  background: transparent;
+  /* While header sits over the banner, use a white background and dark text
+     so the nav items are readable on top of images. When the header receives
+     the .scrolled class it will switch to the glass look defined below. */
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: none;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.04);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   border: none;
   padding: 8px 20px;
-  transition: background .25s ease, box-shadow .25s ease, border .25s ease, backdrop-filter .25s ease;
+  transition: background .25s ease, box-shadow .25s ease, border .25s ease, backdrop-filter .25s ease, color .18s ease;
 }
 
+/* Ensure nav links and logo text are dark when header is in the default (over-banner) state */
+.header .container .text-logo,
+.header .container .link{
+  color: #000000;
+}
+.header .container .link:hover{color:#04162b}
+
 .header.scrolled .container{
-  background: var(--glass-bg);
+  /* slightly darker/lower-opacity glass so links and logo remain legible */
+  background: rgba(255,255,255,0.06); /* reduced from the original lighter tint */
   border-radius: 12px;
   box-shadow: 0 4px 30px rgba(0,0,0,0.08);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
+}
+
+/* Ensure text inside the scrolled header has good contrast against the glass */
+.header.scrolled .container,
+.header.scrolled .container .link,
+.header.scrolled .container .text-logo{
+  color: #05204b; /* dark blue for high contrast */
+}
+.header.scrolled .container .link{opacity:0.95}
+.header.scrolled .container .link:hover{background:rgba(5,32,75,0.06);color:#04162b}
+
+/* When the header overlaps the hero/banner we apply a dark frosted panel
+   and switch text to white for legibility. This only activates when JS
+   toggles the 'over-hero' class on the header. */
+.header.over-hero .container{
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.header.over-hero .container .link,
+.header.over-hero .container .text-logo{
+  color: #ffffff; /* ensure white text over dark frosted panel */
 }
 
 /* Logo area with divider */
@@ -102,17 +140,8 @@ body.nav-scrolled{padding-top:var(--header-height);}
 .hamburger{width:40px;height:28px;display:inline-flex;align-items:center;justify-content:center;border:0;background:transparent;padding:6px;border-radius:6px}
 .hamburger svg{display:block;fill:var(--color-white);width:20px;height:20px}
 
-/* Mobile nav open state */
-.nav.open{display:flex;position:absolute;left:0;right:0;top:var(--header-height);background:linear-gradient(180deg, rgba(8,10,20,0.98), rgba(8,10,20,0.98));flex-direction:column;padding:12px;gap:8px;z-index:55}
-.nav.open .link{padding:12px 16px;color:var(--color-white)}
-
-/* Glass effect for mobile nav panel */
-.nav.open{
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-}
+/* Mobile nav open state (moved into media queries so it takes precedence
+   over the mobile 'hide nav' rule which appears later in the file) */
 
 /* Banner hero */
 .banner{position:relative;width:100%;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
@@ -221,6 +250,23 @@ section + section::before{
   .nav{display:none}
   .menu{display:block}
   .text-logo{font-size:1rem}
+  /* When the nav has .open we show it as a full-width mobile panel */
+  .nav.open{
+    display:flex;
+    position:absolute;
+    left:0;
+    right:0;
+    top:var(--header-height);
+    flex-direction:column;
+    padding:12px;
+    gap:8px;
+    z-index:55;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+  }
+  .nav.open .link{padding:12px 16px;color:var(--mobile-nav-link-color)}
 }
 
 @media (max-width:720px){
