@@ -5,8 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Persia JS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="public/images/app-logo-removebg-preview.png">
-    <link rel="stylesheet" href="public/css/style.css" />
+    <!-- <link rel="stylesheet" href="public/css/style.css" /> -->
+    <link rel="stylesheet" href="public/css/app.css" />
+    <link rel="stylesheet" href="public/css/responsive.css" />
 </head>
 
 <body>
@@ -24,20 +27,20 @@
             <div class="menu">
                 <!-- Accessible hamburger button. Icon is injected/managed by JavaScript.
                          Fallback SVG included so icon is visible before JS runs. -->
-                <button
-                    id="menu-button"
-                    class="hamburger"
-                    type="button"
-                    aria-label="Open menu"
-                    aria-expanded="false"
-                >
+                <button id="menu-button" class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
                     <!-- fallback menu icon -->
-                    <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="20" height="20" aria-hidden="true"><path d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg>
+                    <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="20"
+                        height="20" aria-hidden="true">
+                        <path
+                            d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z" />
+                    </svg>
                 </button>
             </div>
 
             <nav class="nav" aria-hidden="true">
-                <a href="#" class="link">About</a>
+                <!-- Close control shown inside the mobile drawer -->
+                <button class="nav-close" type="button" aria-label="Close menu"></button>
+                <a href="#about" class="link">About</a>
                 <a href="#events" class="link">Events</a>
                 <a href="#speakers" class="link">Speakers</a>
                 <a href="#team" class="link">The Team</a>
@@ -45,8 +48,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- Banner / Hero -->
     <section class="banner" id="home">
         <img src="public/images/banner.jpg" alt="Conference audience banner" />
         <div class="banner-content">
@@ -54,73 +55,131 @@
             <p>A shared cup of thought in a decentralized world</p>
         </div>
     </section>
-
-    <!-- Stats counters section -->
-    <section class="stats" aria-label="Quick stats">
-        <div class="stats-inner">
-            <div class="stat">
-                <div class="stat-number">10</div>
-                <div class="stat-label">Events</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">392</div>
-                <div class="stat-label">Attendees</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Cities</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">17</div>
-                <div class="stat-label">Speakers</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">82</div>
-                <div class="stat-label">Companies</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events section -->
-    <section class="events" id="events">
-        <div class="events-container">
-            <div class="card-wrapper">
-                <!-- Left: event image -->
-                <div class="img-card">
-                    <img src="public/images/Events_banner.png" alt="Event banner" />
+    <div class="section_container">
+        <!-- Stats counters section -->
+        <section class="stats" aria-label="Quick stats">
+            <div class="stats-inner">
+                <div class="stat">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Events</div>
                 </div>
+                <div class="stat">
+                    <div class="stat-number">392</div>
+                    <div class="stat-label">Attendees</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Cities</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Speakers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">82</div>
+                    <div class="stat-label">Companies</div>
+                </div>
+            </div>
+        </section>
+        <h1>Recent Meetup</h1>
 
-                <!-- Right: event information -->
-                <div class="info-card">
-                    <div class="info">
-                        <h2 class="info-title">Persia JS #11: Devconnect Argentina Warmup</h2>
+        <!-- Events section -->
+        <section class="events" id="events">
+            <div class="eventsWraper">
+            </div>
+            <div class="events-container">
+                <div class="card-wrapper">
+                    <!-- Left: event image -->
+                    <div class="img-card">
+                        <img src="public/images/Events_banner.png" alt="Event banner" />
+                    </div>
 
-                        <!-- Host / link -->
-                        <div class="info-link_wrapper">
-                            <a href="#" class="info-link">
-                                <span class="link-container">
-                                    <span class="link-icon" aria-hidden="true">
-                                        <!-- small inline SVG icon -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="20" height="20">
-                                            <path d="M96 128C96 110.3 110.3 96 128 96L480 96C550.7 96 608 153.3 608 224C608 294.7 550.7 352 480 352C480 405 437 448 384 448L192 448C139 448 96 405 96 352L96 128zM544 224C544 188.7 515.3 160 480 160L480 288C515.3 288 544 259.3 544 224zM96 512L480 512C497.7 512 512 526.3 512 544C512 561.7 497.7 576 480 576L96 576C78.3 576 64 561.7 64 544C64 526.3 78.3 512 96 512z" />
-                                        </svg>
+                    <!-- Right: event information -->
+                    <div class="info-card">
+                        <div class="info">
+                            <h2 class="info-title">Persia JS #11: Devconnect Argentina Warmup</h2>
+
+                            <!-- Host / link -->
+                            <div class="info-link_wrapper">
+                                <a href="#" class="info-link">
+                                    <span class="link-container">
+                                        <span class="link-icon" aria-hidden="true">
+                                            <!-- small inline SVG icon -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="20"
+                                                height="20">
+                                                <path
+                                                    d="M96 128C96 110.3 110.3 96 128 96L480 96C550.7 96 608 153.3 608 224C608 294.7 550.7 352 480 352C480 405 437 448 384 448L192 448C139 448 96 405 96 352L96 128zM544 224C544 188.7 515.3 160 480 160L480 288C515.3 288 544 259.3 544 224zM96 512L480 512C497.7 512 512 526.3 512 544C512 561.7 497.7 576 480 576L96 576C78.3 576 64 561.7 64 544C64 526.3 78.3 512 96 512z" />
+                                            </svg>
+                                        </span>
+                                        <span class="link-text">Persia JS Events</span>
                                     </span>
-                                    <span class="link-text">Persia JS Events</span>
-                                </span>
-                            </a>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Registration / meta box (empty by default) -->
+                        <div class="info-date">
+                            <div class="event_descreption-wraper">
+                                <div class="event_descreption">
+                                    <div class="event_des-title">
+                                        <i class="fa-solid fa-circle-xmark"></i>
+                                        <h2>Registration Closed</h2>
+                                    </div>
+                                    <div class="event_des-caption">
+                                        This event is not currently taking registrations. You may contact the host or
+                                        subscribe
+                                        to
+                                        receive updates.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-time_data-wraper">
+                                <div class="date-icon">
+                                    <i class="fa-solid fa-calendar"></i>
+                                </div>
+                                <div class="date-info">
+                                    <h2 class="day">Sunday, October 12</h2>
+                                    <p class="time">7:00 PM - 9:00 PM GMT+3:30</p>
+                                </div>
+                                <div class="date-vid_icon">
+                                    <i class="fa-solid fa-video"></i>
+                                    <h2>Virtual</h2>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <!-- Registration / meta box (empty by default) -->
-                    <div class="base-card">
-                        <p>Registration Closed — contact the host for updates.</p>
-                    </div>
+                </div>
+            </div>
+            <div class="Event-footer">
+                <div class="event_footer-links">
+                    <a href="#">View Full Event Page ↗</a>
+                    <a href="https://luma.com/">Luma</a>
                 </div>
             </div>
 
-            <div class="footer"></div>
-        </div>
-    </section>
+        </section>
+        <!-- About section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-title">
+                    <h2>Fueling the Future</h2>
+                </div>
+                <div class="about-text">
+                    <p>DeCaffeth is a conversation hub for the decentralized era. Where ideas flow freely between
+                        developers, designers,
+                        founders, researchers shaping the future of technology.</p>
+                </div>
+                <div class="about-text">
+                    <p>We host city meetups and micro-gatherings to bring diverse minds together, over ideas — not ego.
+                        Come to speak, listen,
+                        or just be part of something meaningful.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
 
     <script src="public/js/menu.js" defer></script>
 </body>
