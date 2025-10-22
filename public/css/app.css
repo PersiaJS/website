@@ -1,6 +1,5 @@
 
 /* All header styles moved to style.css to avoid conflicts */
-
 :root {
     --header-height: 80px;
     --container-max: 1200px;
@@ -33,7 +32,7 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: local('Poppins Regular'), url('../font/Poppins-Regular.ttf') format('truetype');
+    src: local('Poppins Regular'), url('/public/font/Poppins-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -41,7 +40,7 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: local('Poppins Medium'), url('../font/Poppins-Medium.ttf') format('truetype');
+    src: local('Poppins Medium'), url('/public/font/Poppins-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
