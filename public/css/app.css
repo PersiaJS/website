@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 /* All header styles moved to style.css to avoid conflicts */
-=======
+
 :root {
     --header-height: 80px;
     --container-max: 1200px;
@@ -677,4 +677,4 @@ section+section::before {
     color: white;
     transform: scale(1.1);
 }
->>>>>>> 1711426 (Designed About and Events sections)
+
