@@ -215,6 +215,10 @@
         background: transparent;
     }
 
+    .text-logo {
+        display: none;
+    }
+
     .hamburger svg {
         width: 24px;
         height: 24px;
@@ -336,5 +340,83 @@
         font-size: 14px;
         margin: 0;
         font-weight: 600;
+    }
+
+    .about .container {
+        flex-direction: column;
+    }
+
+    .event-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+
+    .event-details {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .external-link {
+        position: static;
+        margin-top: 1rem;
+        display: inline-block;
+    }
+
+
+    .event-header {
+        flex-direction: row;
+        /* به جای column */
+        align-items: flex-start;
+        gap: .5rem;
+    }
+
+    .external-link {
+        display: flex;
+    }
+}
+
+
+/* for max 600 px width */
+@media (max-width: 600px) {
+    .event-header {
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: .5rem;
+    }
+
+    .event-header h3 {
+        font-size: 1.2rem;
+        flex: 1 1 100%;
+    }
+
+    .meetup-number {
+        font-size: .8rem;
+        flex: 1 1 auto;
+    }
+
+    .external-link {
+        width: 32px;
+        height: 32px;
+        margin-left: auto;
+        margin-top: .3rem;
+        flex-shrink: 0;
+        display: flex !important;
+    }
+
+    .external-link .icon {
+
+        width: 16px;
+        height: 16px;
+    }
+
+    .event-details {
+        flex-direction: column;
+        gap: .3rem;
+    }
+
+    .tags {
+        gap: .4rem;
     }
 }
