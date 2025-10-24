@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ec5f079f5fa349008cdb014f052352df7a3b226
 /* All header styles moved to style.css to avoid conflicts */
 :root {
     --header-height: 80px;
@@ -676,6 +680,7 @@ section+section::before {
     transform: scale(1.1);
 }
 
+<<<<<<< HEAD
 /* !about section */
 .about {}
 
@@ -837,3 +842,5 @@ section+section::before {
 #persiajs-event-7 .external-link:hover {
     background-color: #005fcc;
 }
+=======
+>>>>>>> 4ec5f079f5fa349008cdb014f052352df7a3b226
