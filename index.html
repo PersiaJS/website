@@ -84,81 +84,40 @@
         <h1>Recent Meetup</h1>
 
         <!-- Events section -->
-        <section class="events" id="events">
-            <div class="eventsWraper">
+        <section id="event" class="event-card">
+            <div class="event-image">
+                <img src="public/images/event banner.jpg" alt="Event Banner">
             </div>
-            <div class="events-container">
-                <div class="card-wrapper">
-                    <!-- Left: event image -->
-                    <div class="img-card">
-                        <img src="public/images/Events_banner.png" alt="Event banner" />
+
+            <div class="event-info">
+                <h2>Persia JS #11: Devconnect Argentina Warmup</h2>
+                <p class="host">Hosted by <a href="#">Persia JS Events</a></p>
+
+                <div class="event-meta">
+                    <div class="date">
+                        <i class="fa-solid fa-calendar"></i>
+                        Sunday, October 12 — 7:00 PM - 9:00 PM GMT+3:30
                     </div>
-
-                    <!-- Right: event information -->
-                    <div class="info-card">
-                        <div class="info">
-                            <h2 class="info-title">Persia JS #11: Devconnect Argentina Warmup</h2>
-
-                            <!-- Host / link -->
-                            <div class="info-link_wrapper">
-                                <a href="#" class="info-link">
-                                    <span class="link-container">
-                                        <span class="link-icon" aria-hidden="true">
-                                            <!-- small inline SVG icon -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="20"
-                                                height="20">
-                                                <path
-                                                    d="M96 128C96 110.3 110.3 96 128 96L480 96C550.7 96 608 153.3 608 224C608 294.7 550.7 352 480 352C480 405 437 448 384 448L192 448C139 448 96 405 96 352L96 128zM544 224C544 188.7 515.3 160 480 160L480 288C515.3 288 544 259.3 544 224zM96 512L480 512C497.7 512 512 526.3 512 544C512 561.7 497.7 576 480 576L96 576C78.3 576 64 561.7 64 544C64 526.3 78.3 512 96 512z" />
-                                            </svg>
-                                        </span>
-                                        <span class="link-text">Persia JS Events</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Registration / meta box (empty by default) -->
-                        <div class="info-date">
-                            <div class="event_descreption-wraper">
-                                <div class="event_descreption">
-                                    <div class="event_des-title">
-                                        <i class="fa-solid fa-circle-xmark"></i>
-                                        <h2>Registration Closed</h2>
-                                    </div>
-                                    <div class="event_des-caption">
-                                        This event is not currently taking registrations. You may contact the host or
-                                        subscribe
-                                        to
-                                        receive updates.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="event-time_data-wraper">
-                                <div class="date-icon">
-                                    <i class="fa-solid fa-calendar"></i>
-                                </div>
-                                <div class="date-info">
-                                    <h2 class="day">Sunday, October 12</h2>
-                                    <p class="time">7:00 PM - 9:00 PM GMT+3:30</p>
-                                </div>
-                                <div class="date-vid_icon">
-                                    <i class="fa-solid fa-video"></i>
-                                    <h2>Virtual</h2>
-                                </div>
-                            </div>
-
-                        </div>
+                    <div class="type">
+                        <i class="fa-solid fa-video"></i> Virtual
                     </div>
-
                 </div>
-            </div>
-            <div class="Event-footer">
-                <div class="event_footer-links">
+
+                <div class="registration closed">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <div>
+                        <h3>Registration Closed</h3>
+                        <p>This event is not currently taking registrations. You may contact the host or subscribe to
+                            receive
+                            updates.</p>
+                    </div>
+                </div>
+
+                <div class="event-footer">
                     <a href="#">View Full Event Page ↗</a>
-                    <a href="https://luma.com/">Luma</a>
+                    <span class="brand">luma*</span>
                 </div>
             </div>
-
         </section>
         <!-- About section -->
         <section class="about" id="about">
@@ -167,7 +126,7 @@
                     <h2>Fueling the Future</h2>
                 </div>
                 <div class="about-text">
-                    <p>DeCaffeth is a conversation hub for the decentralized era. Where ideas flow freely between
+                    <p>Persia JS is a conversation hub for the decentralized era. Where ideas flow freely between
                         developers, designers,
                         founders, researchers shaping the future of technology.</p>
                 </div>
@@ -178,85 +137,417 @@
                 </div>
             </div>
         </section>
+        <!-- persiajs-events section-->
+        <section class="persiajs-events" id="persiajs-events">
+            <div class="events-inner">
+                <div class="events-header">
+                    <span class="label">Previous Events</span>
+                    <a href="#" class="view-all">View All →</a>
+                </div>
 
+                <h2>Missed a Persia JS? Catch the conversation.</h2>
 
-    <section class="persiajs-events" id="persiajs-events">
-        <div class="events-inner">
-            <div class="events-header">
-                <span class="label">Previous Events</span>
-                <a href="#" class="view-all">View All →</a>
-            </div>
-    
-            <h2>Missed a Persia JS? Catch the conversation.</h2>
-    
-            <!-- Event 1 -->
-            <div class="event" id="persiajs-event-9">
-                <div class="event-header">
-                    <h3>Unpacking Bitcoin</h3>
-                    <span class="meetup-number">Persia JS Meetup #9</span>
-                    <a href="#" class="external-link" aria-label="Link to event">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
-                            <path d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z" />
-                        </svg>
-                    </a>
+                <!-- Event 1 -->
+                <div class="event" id="persiajs-event-9">
+                    <div class="event-header">
+                        <h3>Unpacking Bitcoin</h3>
+                        <span class="meetup-number">Persia JS Meetup #9</span>
+                        <a href="#" class="external-link" aria-label="Link to event">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
+                                <path d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="event-details">
+                        <span class="date">Sunday, 4 June</span>
+                        <span class="location">Tehran, Peydak</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Blockchain</span>
+                        <span class="tag">Bitcoin</span>
+                    </div>
                 </div>
-                <div class="event-details">
-                    <span class="date">Sunday, 4 June</span>
-                    <span class="location">Tehran, Peydak</span>
-                </div>
-                <div class="tags">
-                    <span class="tag">Blockchain</span>
-                    <span class="tag">Bitcoin</span>
-                </div>
-            </div>
-    
-            <!-- Event 2 -->
-            <div class="event" id="persiajs-event-8">
-                <div class="event-header">
-                    <h3>Startup in Web3</h3>
-                    <span class="meetup-number">Persia JS Meetup #8</span>
-                    <a href="#" class="external-link" aria-label="Link to event">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
-                            <path d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z" />
-                        </svg>
-                    </a>
-                </div>
-                <div class="event-details">
-                    <span class="date">Wednesday, 19 April</span>
-                    <span class="location">Tabriz, CAFE WALTON</span>
-                </div>
-                <div class="tags">
-                    <span class="tag">Web3</span>
-                    <span class="tag">Startup</span>
-                </div>
-            </div>
-    
-            <!-- Event 3 -->
-            <div class="event" id="persiajs-event-7">
-                <div class="event-header">
-                    <h3>Restaking & EigenLayer</h3>
-                    <span class="meetup-number">Persia JS Meetup #7</span>
-                    <a href="#" class="external-link" aria-label="Link to event">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
-                            <path d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z" />
-                        </svg>
-                    </a>
-                </div>
-                <div class="event-details">
-                    <span class="date">Friday, 7 March</span>
-                    <span class="location">Tehran, Saraye Ketabkhaneh</span>
-                </div>
-                <div class="tags">
-                    <span class="tag">Ethereum</span>
-                    <span class="tag">Restaking</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
+                <!-- Event 2 -->
+                <div class="event" id="persiajs-event-8">
+                    <div class="event-header">
+                        <h3>Startup in Web3</h3>
+                        <span class="meetup-number">Persia JS Meetup #8</span>
+                        <a href="#" class="external-link" aria-label="Link to event">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
+                                <path d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="event-details">
+                        <span class="date">Wednesday, 19 April</span>
+                        <span class="location">Tabriz, CAFE WALTON</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Web3</span>
+                        <span class="tag">Startup</span>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event" id="persiajs-event-7">
+                    <div class="event-header">
+                        <h3>Restaking & EigenLayer</h3>
+                        <span class="meetup-number">Persia JS Meetup #7</span>
+                        <a href="#" class="external-link" aria-label="Link to event">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3z" />
+                                <path d="M5 5h5V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5h-2v5H5V5z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="event-details">
+                        <span class="date">Friday, 7 March</span>
+                        <span class="location">Tehran, Saraye Ketabkhaneh</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Ethereum</span>
+                        <span class="tag">Restaking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Speakers section -->
+        <section id="speakers" class="speakers-section" aria-labelledby="speakers-title">
+            <div class="section-header">
+                <p class="section-label">Speakers</p>
+                <h2 id="speakers-title">Meet the Minds Behind the Mics</h2>
+            </div>
+            <div class="speakers-container" role="list">
+                <div class="speaker-card" role="listitem">
+                    <img src="public/images/person-img/person1.jpg" alt="Portrait of Speaker 1" class="speaker-photo" />
+                    <h3 class="speaker-name">Speaker 1</h3>
+                    <p class="speaker-role">Blockchain Business Owner</p>
+                </div>
+
+                <div class="speaker-card" role="listitem">
+                    <img src="public/images/person-img/person1.jpg" alt="Portrait of Speaker 2" class="speaker-photo" />
+                    <h3 class="speaker-name">Speaker 2</h3>
+                    <p class="speaker-role">Blockchain Developer & Software Engineer</p>
+                </div>
+
+                <div class="speaker-card" role="listitem">
+                    <img src="public/images/person-img/person2.jpg" alt="Portrait of Speaker 3" class="speaker-photo" />
+                    <h3 class="speaker-name">Speaker 3</h3>
+                    <p class="speaker-role">Web3 Developer & Entrepreneur</p>
+                </div>
+                <div class="speaker-card" role="listitem">
+                    <img src="public/images/person-img/person2.jpg" alt="Portrait of Speaker 4" class="speaker-photo" />
+                    <h3 class="speaker-name">Speaker 4</h3>
+                    <p class="speaker-role">Blockchain Researcher</p>
+                </div>
+                <div class="speaker-card" role="listitem">
+                    <img src="public/images/person-img/person1.jpg" alt="Portrait of Speaker 5" class="speaker-photo" />
+                    <h3 class="speaker-name">Speaker 5</h3>
+                    <p class="speaker-role">Software Engineer and Blockchain Entrepreneur</p>
+                </div>
+                <div class="speaker-card" role="listitem">
+                    <img src="public/images/person-img/person1.jpg" alt="Portrait of Speaker 1" class="speaker-photo" />
+                    <h3 class="speaker-name">Speaker 1</h3>
+                    <p class="speaker-role">Blockchain Business Owner</p>
+                </div>
+                <div class="speaker-card" role="listitem">
+                    <img src="public/images/person-img/person2.jpg" alt="Portrait of Speaker 4" class="speaker-photo" />
+                    <h3 class="speaker-name">Speaker 4</h3>
+                    <p class="speaker-role">Blockchain Researcher</p>
+                </div>
+            </div>
+        </section>
+        <!-- community-invite section -->
+        <section class="community-invite">
+            <div class="invite-card">
+                <div class="card-content">
+                    <h2>Become a Speaker</h2>
+                    <p>Share your unique story or idea. Whether it's about DeFi, AI, or UX for wallets, your voice
+                        matters.
+                        Let’s put it on stage.</p>
+                    <a href="#" class="cta-button">Apply to Speak</a>
+                </div>
+            </div>
+
+            <div class="invite-card">
+                <div class="card-content">
+                    <h2>Host a Persia JS in Your City</h2>
+                    <p>If you're passionate about your local ecosystem, co-host a Persia JS meetup. We’ll help with
+                        planning—from agenda design to speaker curation.</p>
+                    <a href="#" class="cta-button">Host With Us</a>
+                </div>
+            </div>
+        </section>
+        <!-- TEAM section -->
+        <section id="team" class="team" aria-labelledby="team-title">
+            <div class="container">
+                <h2 id="team-title">Meet The Team</h2>
+                <p class="team-subtitle">Our Team Members</p>
+
+                <div class="team-scroller" tabindex="0" aria-label="Horizontal scroll of team members">
+                    <ul class="team-list" role="list">
+                        <!-- 1 -->
+                        <li class="team-item">
+                            <figure class="member" aria-label="Sohrab Sameni — Co-Founder">
+                                <img src="/public/images/person-img/person2.jpg" alt="Portrait of Sohrab Sameni"
+                                    class="member-photo" loading="lazy" width="160" height="160" />
+                                <figcaption class="member-info">
+                                    <span class="member-name">Sohrab Sameni</span>
+                                    <span class="member-role">Co-Founder</span>
+                                    <a href="https://www.linkedin.com/in/ruhollah-hosseini-aa2123320/"
+                                        class="linkedin-link" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Sohrab Sameni on LinkedIn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- 2 -->
+                        <li class="team-item">
+                            <figure class="member" aria-label="Mahdieh Amiri — Co-Founder">
+                                <img src="/public/images/person-img/person2.jpg" alt="Portrait of Mahdieh Amiri"
+                                    class="member-photo" loading="lazy" width="160" height="160" />
+                                <figcaption class="member-info">
+                                    <span class="member-name">Mahdieh Amiri</span>
+                                    <span class="member-role">Co-Founder</span>
+                                    <a href="https://www.linkedin.com/in/gazar" class="linkedin-link" target="_blank"
+                                        rel="noopener noreferrer" aria-label="Mahdieh Amiri on LinkedIn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- 3 -->
+                        <li class="team-item">
+                            <figure class="member" aria-label="Mahdi Amiri — Videographer">
+                                <img src="/public/images/person-img/person2.jpg" alt="Portrait of Mahdi Amiri"
+                                    class="member-photo" loading="lazy" width="160" height="160" />
+                                <figcaption class="member-info">
+                                    <span class="member-name">Mahdi Amiri</span>
+                                    <span class="member-role">Videographer</span>
+                                    <a href="#" class="linkedin-link" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Mahdi Amiri on LinkedIn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- 4 -->
+                        <li class="team-item">
+                            <figure class="member" aria-label="Hannah Shaghaghi — Product Designer">
+                                <img src="/public/images/person-img/person2.jpg" alt="Portrait of Hannah Shaghaghi"
+                                    class="member-photo" loading="lazy" width="160" height="160" />
+                                <figcaption class="member-info">
+                                    <span class="member-name">Hannah Shaghaghi</span>
+                                    <span class="member-role">Product Designer</span>
+                                    <a href="#" class="linkedin-link" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Hannah Shaghaghi on LinkedIn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- 5 -->
+                        <li class="team-item">
+                            <figure class="member" aria-label="Saeed Ghadiri — Full-Stack Web3 Engineer">
+                                <img src="/public/images/person-img/person2.jpg" alt="Portrait of Saeed Ghadiri"
+                                    class="member-photo" loading="lazy" width="160" height="160" />
+                                <figcaption class="member-info">
+                                    <span class="member-name">Saeed Ghadiri</span>
+                                    <span class="member-role">Full-Stack Web3 Engineer</span>
+                                    <a href="#" class="linkedin-link" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Saeed Ghadiri on LinkedIn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- 6 -->
+                        <li class="team-item">
+                            <figure class="member" aria-label="Ali Hassanzadeh — Back-End Developer">
+                                <img src="/public/images/person-img/person2.jpg" alt="Portrait of Ali Hassanzadeh"
+                                    class="member-photo" loading="lazy" width="160" height="160" />
+                                <figcaption class="member-info">
+                                    <span class="member-name">Ali Hassanzadeh</span>
+                                    <span class="member-role">Back-End Developer</span>
+                                    <a href="#" class="linkedin-link" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Ali Hassanzadeh on LinkedIn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- 7 -->
+                        <li class="team-item">
+                            <figure class="member" aria-label="Niloufar Kazemi — Lead Designer">
+                                <img src="/public/images/person-img/person2.jpg" alt="Portrait of Niloufar Kazemi"
+                                    class="member-photo" loading="lazy" width="160" height="160" />
+                                <figcaption class="member-info">
+                                    <span class="member-name">Niloufar Kazemi</span>
+                                    <span class="member-role">Lead Designer</span>
+                                    <a href="#" class="linkedin-link" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Niloufar Kazemi on LinkedIn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <!-- 8 -->
+                        <li class="team-item">
+                            <figure class="member" aria-label="Arman Rastgar — Product Manager">
+                                <img src="/public/images/person-img/person2.jpg" alt="Portrait of Arman Rastgar"
+                                    class="member-photo" loading="lazy" width="160" height="160" />
+                                <figcaption class="member-info">
+                                    <span class="member-name">Arman Rastgar</span>
+                                    <span class="member-role">Product Manager</span>
+                                    <a href="#" class="linkedin-link" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Arman Rastgar on LinkedIn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ section -->
+        <section id="faq" class="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">FAQ</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is Persia JS?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">A community for learning and sharing ideas in various fields.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is Persia JS an organization or a company?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">No, it is an open and free community.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Who is Persia JS for?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">For anyone interested in learning and discussion.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What does the name "Persia JS" mean?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">A chosen name that represents the community’s independent identity.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What kinds of events do you host?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">Talks, workshops, and educational sessions.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How can I get involved?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">By joining sessions, suggesting topics, or volunteering as a speaker.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is it free to join?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">Yes, joining Persia JS is free.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you record sessions or publish content?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">Some sessions are recorded and shared.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Who designs or manages this community?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">It is managed collectively by the members.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I suggest a topic or be a speaker?</span>
+                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <div class="faq-answer">Yes! Members are encouraged to bring their ideas and volunteer.</div>
+            </div>
+
+            <p class="faq-note">
+                Actually! We let the entire community bring their ideas. Reach out to Teagan to suggest a session or
+                offer to
+                speak.
+            </p>
+        </section>
+        <!-- footer -->
+        <footer class="footer">
+            <!-- بخش Join Our Community -->
+            <section class="community">
+                <h2>Join Our Community</h2>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+                    <a href="#"><i class="fa-brands fa-telegram"></i> Telegram</a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fa-brands fa-discord"></i> Discord</a>
+                </div>
+            </section>
+
+            <!-- بخش پایین فوتر -->
+            <div class="footer-main">
+                <div class="brand">
+                    <h3>Persia JS</h3>
+                    <p>A shared cup of thought in a decentralized world.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="col">
+                        <h4>About</h4>
+                        <a href="#">The Team</a>
+                        <a href="#">Upcoming Events</a>
+                    </div>
+                    <div class="col">
+                        <h4>Archive</h4>
+                        <a href="#">FAQ</a>
+                        <a href="#">T&amp;C</a>
+                    </div>
+                    <div class="col">
+                        <h4>Get Involved</h4>
+                        <a href="#">Apply to Speak</a>
+                        <a href="#">Host With Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 DeCaffeth. All rights reserved.</p>
+                <p>Designed & Developed by Ruhollah Hosseini</p>
+            </div>
+        </footer>
 
 
 
@@ -264,6 +555,8 @@
 
 
     <script src="public/js/menu.js" defer></script>
+    <script src="public/js/sliders.js"></script>
+    <script src="public/js/faq.js"></script>
 </body>
 
 </html>
