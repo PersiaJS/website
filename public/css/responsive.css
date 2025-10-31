@@ -171,6 +171,10 @@
 
 /* <= 768px */
 @media (max-width: 768px) {
+        .section_container{
+        width: 100%;
+        padding: 5px;
+    }
 
     /* Navigation Drawer */
     .nav {

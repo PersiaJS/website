@@ -116,6 +116,11 @@ body {
 .header .container .link:hover {
     color: #04162b;
 }
+}
+
+.header.hide {
+  transform: translateY(-100%);
+}
 
 /* scrolled state */
 .header.scrolled .container {
@@ -665,8 +670,6 @@ section+section::before {
     opacity: 0.6;
     font-style: italic;
 }
-
->>>>>>> 0f70814 (ادامه آپلود پروژه - بخش دوم)
 
 
 /* !about section */
@@ -1307,5 +1310,3 @@ footer {
     margin: 0.3rem 0;
 }
 
-/* واکنش‌گرا */
->>>>>>> 0f70814 (ادامه آپلود پروژه - بخش دوم)

@@ -123,3 +123,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+const header = document.querySelector('.header');
+let lastScrollY = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+  const isMobile = window.innerWidth < 768;
+
+  if (!isMobile) {
+    header.classList.remove('hide');
+    return; // در دسکتاپ کاری نکن
+  }
+
+  if (currentScroll > lastScrollY && currentScroll > 80) {
+    header.classList.add('hide'); // رو به پایین → پنهان
+  } else if (currentScroll < lastScrollY) {
+    header.classList.remove('hide'); // رو به بالا → نمایش
+  }
+
+  lastScrollY = currentScroll;
+});
